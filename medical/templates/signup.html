@@ -1,0 +1,49 @@
+{%extends 'base.html'%}
+{% block body %}
+<center>
+    <form method="post" action="/signup/">
+    {% csrf_token %}
+ 
+    <div class="mb-3">
+      <label for="username" class="form-label">Username :</label>
+      <input type="text" class="form-control" id="username" name="Username" style="width: 300px;">
+    </div>
+    <br>
+    <div class="mb-3">
+        <label for="firstname" class="form-label">First name</label>
+        <input type="text" class="form-control" id="firstname" name="fname" style="width: 300px;">
+      </div>
+      <br>
+      <div class="mb-3">
+          <label for="lastname" class="form-label">Last name</label>
+          <input type="text" class="form-control" id="lastname" name="lname" style="width: 300px;">
+        </div>
+        <br>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email :</label>
+        <input type="email" class="form-control" id="email" name="Email" style="width: 300px;">
+      </div>
+      <br>
+      
+    <div class="mb-3">
+      <label for="password" class="form-label">Password :</label>
+      <input type="password" class="form-control" id="password" name="Password" style="width: 300px;">
+    </div>
+    <br>
+    <div class="mb-3">
+        <label for="Cpassword" class="form-label"> Confirm Password :</label>
+        <input type="password" class="form-control" id="Cpassword" name="Confirmpassword" style="width: 300px;">
+      </div>
+<br>
+ 
+  
+   <button type="submit">Signup</button>
+
+
+  </form>
+  
+</center>
+</div>
+</body>
+</html>
+{% endblock body %}

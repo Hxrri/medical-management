@@ -1,0 +1,74 @@
+{%extends 'userbase.html'%}
+{% block body %}
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body style="background-color: aliceblue;">
+        <center><h3 style="color: rgb(230, 226, 226);"> Order <i class="fa-regular fa-face-smile fa-flip fa-lg" style="color: #050505;"></i></h3></center>
+        <br>
+        <br>
+<form method="post">
+    {% csrf_token %}
+    <center>
+      <div class="order">
+    <div class="mb-3">
+      <label for="fullname" class="form-label" style="color: white;"> Fullname :</label>
+      <input type="text" class="form-control" id="contactname" name="Orname" style="width: 300px;" >
+    </div>
+    <br>
+    <div class="mb-3">
+        <label for="email" class="form-label" style="color: white;">E-Mail :</label>
+        <input type="email" class="form-control" id="email" name="email"  style="width: 300px;">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="medicine" style="color: white;">select medicine :</label>
+        <select class="form-control" name="items" id="medicine" style="width: 300px;">
+            <option selected> choose</option>
+            {% for i in product %}
+            <option value="{{i.Pname}}">{{i.Pname}}</option>
+            {% endfor %}
+          </select> 
+      </div>
+      <br>
+      <div class="form-group" >
+        
+        <label for="quantity" style="color: white;">Quantity :</label>
+        <select class="form-select" style="width: 300px;" name="quantity">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select> 
+      </div>
+      <br>
+      <div class="mb-3">
+        <label for="phonenumber" class="form-label" style="color: white;">Phone Number :</label>
+        <input type="text" class="form-control" id="phonenumber" name="phonenumber"  style="width: 300px;">
+    </div>
+    <br>
+    <div class="mb-3">
+        <label for="address" class="form-label" style="color: white;">Delivery Address :</label>
+        <input type="text" class="form-control" id="address" name="address"  style="width: 300px;">
+    </div>
+    <br>
+    
+    <div class="form-check">
+        <label for="accept" class="form-label" style="color: white;">Cash on Delivery :</label>
+        <br>
+        <input class="form-check-input" type="checkbox" id="check1" name="delivery">
+        
+      </div> 
+      <br>
+    
+    <button type="submit" class="btn btn-primary" style="color: white;" >Place Order</button>
+
+  </form>
+</center>
+</div>
+</body>
+</html>
+{% endblock body %}
